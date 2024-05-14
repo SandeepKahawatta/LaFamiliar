@@ -11,7 +11,7 @@
     <header>
         <div class="navbar">
             <div class="logo">
-                <img src="images/logo/Primary Logo.png" alt="Logo" width="250px" height="100px">  
+                <img src="images/logo.png" alt="Logo" width="150px" height="100px" >  
             </div>
             <ul class="links">
                 <li class="nav"><a class="nav_a" href="index.php"><b>Home</b></a></li>
