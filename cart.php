@@ -14,10 +14,8 @@
     <div class="cart-container">
         <div class="cart-container-left">
         <?php
-    session_start();
     require "config.php";
 
-    // Assume $user is the user ID retrieved from the session
     $user = $_SESSION['user_id'];
 
     // Fetch cart items for the logged-in user with details from the food table
@@ -133,7 +131,7 @@
 
         
 
-
+        <?php include 'footer.php'; ?>
 
 
     </body>
