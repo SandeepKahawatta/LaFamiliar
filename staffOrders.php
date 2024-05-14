@@ -49,16 +49,24 @@
         // Check if any orders are found
         if(mysqli_num_rows($result) > 0) {
             // Iterate over each order and display its details
-            while($row = mysqli_fetch_assoc($result)) {
-                ?>
-                <div class="order">
-                    <h2>Order ID: <?php echo $row['id']; ?></h2>
-                    <!-- Additional order details -->
-                    <p class="total-amount">Total Amount: Rs. <?php echo $row['price']; ?></p>
-                    <!-- Add more order details here as needed -->
-                </div>
-                <?php
-            }
+            // Iterate over each order and display its details
+                while($row = mysqli_fetch_assoc($result)) {
+                    ?>
+                    <div class="order">
+                        <h2>Order ID: <?php echo $row['id']; ?></h2>
+                        <!-- Additional order details -->
+                        <p class="total-amount">Total Amount: Rs. <?php echo $row['price']; ?></p>
+                        <!-- Add more order details here as needed -->
+                        
+                        <!-- Approve and reject buttons -->
+                        <div class="buttons">
+                        <a href="processApproveOrder.php?id=<?php echo $row['id']; ?>" class="approve-button">Approve</a>
+                        <a href="processRejectOrder.php?id=<?php echo $row['id']; ?>" class="reject-button">Reject</a>
+                    </div>
+                    </div>
+                    <?php
+                }
+
         } else {
             // If no orders found, display a message
             echo "<p>No orders found in the database.</p>";
