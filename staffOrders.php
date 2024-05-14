@@ -23,7 +23,7 @@
             <ul class="links">
                 <li class="nav"><a class="nav_a" href="staffHome.php"><b>Home</b></a></li>
                 <li class="nav"><a class="nav_a" href="staffOrders.php"><b>Orders</b></a></li>
-                <li class="nav"><a class="nav_a" href="staffManageFoods.php"><b>Manage Foods</b></a></li>
+                <li class="nav"><a class="nav_a" href="staffAllFood.php"><b>Manage Foods</b></a></li>
             </ul>
             <div class="shortcut">
                 <div class="profile-img">
