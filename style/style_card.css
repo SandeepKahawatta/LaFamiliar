@@ -168,6 +168,7 @@ header {
 
 .read-more button:hover {
     background: #dddddd; /* Lighter shade on hover */
+    color: #fc863c;
 }
 
 .read-more a {
