@@ -80,8 +80,8 @@ $name_err = $description_err = $price_err = $image_err = "";
 
                     <!-- Edit and Delete buttons -->
                     <div class="buttons">
-                        <a href="editFood.php?id=<?php echo $row['id']; ?>" class="edit-button">Edit</a>
-                        <a href="deleteFood.php?id=<?php echo $row['id']; ?>" class="delete-button">Delete</a>
+                        <a href="staffEditFood.php?id=<?php echo $row['id']; ?>" class="edit-button">Edit</a>
+                        <a href="staffDeleteFood.php?id=<?php echo $row['id']; ?>" class="delete-button">Delete</a>
                     </div>
                     <!-- End Edit and Delete buttons -->
 
