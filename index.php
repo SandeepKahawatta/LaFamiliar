@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="style/style_review.css">
     <link rel="stylesheet" href="style/style_footer.css">
     <link rel="icon" type="image/X-icon" href="images/logo/Secondary Logo.png">
-    <title>EvenyStay.com</title>
+    <title>LaFamiliar.com</title>
 </head>
 <body>
 
@@ -23,7 +23,7 @@
             </div>
             <ul class="links">
                 <li class="nav"><a class="nav_a" href="index.php"><b>Home</b></a></li>
-                <li class="nav"><a class="nav_a" href="card.html"><b>Hotels</b></a></li>
+                <li class="nav"><a class="nav_a" href="card.html"><b>Food Ordering</b></a></li>
                 <li class="nav"><a class="nav_a" href="aboutUs.html"><b>About Us</b></a></li>
                 <li class="nav"><a class="nav_a" href="contactUs.php"><b>Contact</b></a></li>
             </ul>
@@ -42,43 +42,13 @@
     <!--Home Image Changer-->
     <div class="Home_top">
         <div class="image-content">
-            <h1>Event<span>Stay</span></h1>
+            <h1>La<span>Familiar</span></h1>
             <a href="aboutUs.html">Welcome</a>
         </div>
     </div>
     <br>
 
-    <!--Availability Checker-->
-    <selection class="availability">
-        <form action="card.html">
-            <div class="avail_check_box">
-                <p>Location</p>
-                <select name="loaction" id="" class="availability_input">
-                    <option value="1">Colombo</option>
-                    <option value="2">Ella</option>
-                    <option value="3">Galle</option>
-                    <option value="4">Kandy</option>
-                    <option value="5">Nuwara Eliya</option>
-                    <option value="6">Sigiriya</option>
-                </select>
-            </div>
-            <div class="avail_check_box">
-                <p>Check Date</p>
-                <input type="date" name="" id="" class="availability_input">
-            </div>
-            <div class="avail_check_box">
-                <p>People</p>
-                <input type="text" name="" id="" class="availability_input">
-            </div>
-            <input type="submit" class="btn_type1" value="found">
-        </form>
-    </selection>
-
-    <br>
-
-    <h1 class="h1_type1">Treding Hotels</h1>
-
-    <br>
+    
 
     <!--Hotel card Horisontal-->
     <div class="section" onclick="displayDetails(2)">
@@ -91,7 +61,7 @@
         </div>
     </div>
 
-    <!--Hotel Cards-->
+    <!--Food Cards-->
     <div class="card_container">
 
         <figure class="card" onclick="displayDetails(11)">
