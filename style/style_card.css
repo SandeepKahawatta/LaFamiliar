@@ -176,6 +176,13 @@ header {
     font-weight: 600;
 }
 
+.search-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    margin: 50px, auto;
+}
+
 /* Small devices (mobile phones, 576px and up) */
 @media (max-width: 576px) {
     .container {
