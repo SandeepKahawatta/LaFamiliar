@@ -1,119 +1,140 @@
+<?php
+session_start();
+
+if(isset($_SESSION['user_id'])){
+
+    $index = $_SESSION['user_id'];
+    
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="style/style_login.css">
-    <link rel="stylesheet" type="text/css" href="style/style_footer.css">
+    <link rel="stylesheet" type="text/css" href="style/style_profle.css">
     <link rel="stylesheet" type="text/css" href="style/style_NavBar.css">
-    <link rel="icon" type="image/X-icon" href="login/Secondary Logo.png">
-    <title>Login Page</title>
+    <link rel="stylesheet" type="text/css" href="style/style_footer_profile.css">
+    <link rel="icon" type="image/X-icon" href="images/logo/Secondary Logo.png">
+    <title>Profile - EventStay.com</title>
 </head>
 <body>
-
-    <!--Navigation Bar-->
-    <header>
-        <div class="navbar">
-            <div class="logo">
-                <img src="images/logo/Primary Logo.png" alt="Logo" width="250px" height="100px">  
-            </div>
-            <ul class="links">
-                <li class="nav"><a class="nav_a" href="index.php"><b>Home</b></a></li>
-                <li class="nav"><a class="nav_a" href="card.html"><b>Hotels</b></a></li>
-                <li class="nav"><a class="nav_a" href="aboutUs.html"><b>About Us</b></a></li>
-                <li class="nav"><a class="nav_a" href="contactUs.php"><b>Contact</b></a></li>
-            </ul>
-            <div class="shortcut">
-                <a href="login.php" class="btn_type1">Login</a>
-
-                <div class="profile-img">
-                    <a href="profile.php" ><img src="images/refund/profile.png" width="30px" height="30px" ></a>
-                </div>
-            </div>
-
-        </div>
-    </header>
-    <!--end-->
-
-    <div class="body_container">
-        <div class="container">
-            <div class="signin-signup">
-                <form action="loginprocess.php" method="post" class="sign-in-form">
-                    <h2 class="title">Sign in</h2>
-                    <?php if(isset($_GET['error'])) {?>
-                        <p class="error"><?php echo $_GET['error'] ?></p>
-                    <?php }?>
-                    <div class="input-feild">
-                        <i class="fa fa-user-o" aria-hidden="true"></i>
-                        <input type="text" name="username" id="" placeholder="Username">
-                    </div>
-                    <div class="input-feild">
-                        <i class="fa fa-unlock-alt" aria-hidden="true"></i>
-                        <input type="password" name="logpassword" id="" placeholder="Password">
-                    </div>
-                    <input type="submit" onclick="signin()" value="Login" class="btn_login">
-                    <p class="text">By signing in or creating an account, you agree with our <span>Terms & conditions</span> and <span>Privacy statement</span>.</p>
-                    <p class="text">Copyright © EventStay 2023 All Rights Reserved.</p>
-                </form>
+    <?php
+    require "config.php";
     
-                <form action="submitsignup.php" method="post" class="sign-up-form">
-                    <h2 class="title">Sign up</h2>
-                    <div class="input-feild">
-                        <i class="fa fa-user-o" aria-hidden="true"></i>
-                        <input type="text" name="firstname" id="" placeholder="First Name" required>
-                    </div>
-                    <div class="input-feild">
-                        <i class="fa fa-user-o" aria-hidden="true"></i>
-                        <input type="text" name="lastname" id="" placeholder="Last Name" required>
-                    </div>
-                    <div class="input-feild">
-                        <i class="fa fa-user-o" aria-hidden="true"></i>
-                        <input type="text" name="address" id="" placeholder="address" required>
-                    </div>
-                    <div class="input-feild">
-                        <i class="fa fa-envelope-o" aria-hidden="true"></i>
-                        <input type="email" name="email" id="" placeholder="Email" required>
-                    </div>
-                    <div class="input-feild">
-                        <i class="fa fa-phone" aria-hidden="true"></i>
-                        <input type="tel" name="phone" id="" pattern="[o-9]{10}" placeholder="Phone Number" required>
-                    </div>
-                    <div class="input-feild">
-                        <i class="fa fa-unlock-alt" aria-hidden="true"></i>
-                        <input type="password" name="password" id="pass" placeholder="Password" required>
-                    </div>
-                    <div class="input-feild">
-                        <i class="fa fa-unlock-alt" aria-hidden="true"></i>
-                        <input type="password" name="re-password" id="repass" placeholder="Re-Enter Password" required>
-                    </div>
-                    <input type="submit" value="sign up" name="submitlog" class="btn_login">
-                    <p class="text">By signing in or creating an account, you agree with our <span>Terms & conditions</span> and <span>Privacy statement</span>.</p>
-                    <p class="text">Copyright © EventStay 2023 All Rights Reserved.</p>
-                </form>
-            </div>
-            <div class="panels-container">
-                <div class="panel left-panel">
-                    <div class="content">
-                        <h3>Member of Brand</h3>
-                        <p>Welcome to LaFamiliar.</p>
-                        <button class="btn_login" id="sign-in-btn">Sign in</button>
-                    </div>
-                    <img src="images/login/sign-in.png" alt="" class="image">
+    $sql1 = "SELECT * FROM user WHERE id = '$index'";
+    $result1 = $conn->query($sql1);
+
+    $result2 = $result1 -> fetch_assoc();
+    ?>
+
+        <!--Navigation Bar-->
+        <header>
+            <div class="navbar">
+                <div class="logo">
+                    <img src="images/logo/Primary Logo.png" alt="Logo" width="250px" height="100px">  
                 </div>
-                <div class="panel right-panel">
-                    <div class="content">
-                        <h3>New to Brand</h3>
-                        <p>Welcome to LaFamiliar.</p>
-                        <button class="btn_login" id="sign-up-btn">Sign up</button>
+                <ul class="links">
+                    <li class="nav"><a class="nav_a" href="index.php"><b>Home</b></a></li>
+                    <li class="nav"><a class="nav_a" href="AllFoods.php"><b>Food Ordering</b></a></li>
+                    <li class="nav"><a class="nav_a" href="cart.php"><b>Cart</b></a></li>
+                    <li class="nav"><a class="nav_a" href="aboutUs.html"><b>About Us</b></a></li>
+                    <li class="nav"><a class="nav_a" href="contactUs.php"><b>Contact</b></a></li>
+                </ul>
+                <div class="shortcut">
+                    <a href="login.php" class="btn_type1">Login</a>
+
+                    <div class="profile-img">
+                        <a href="profile.php" ><img src="images/refund/profile.png" width="30px" height="30px" ></a>
                     </div>
-                    <img src="images/login/sign-up.png" alt="" class="image">
+                </div>
+
+            </div>
+        </header>
+        <!--end-->
+    <br>
+    <div class="body_container">
+        <div class="outer_container">
+            <h1 id="h1">User Profile</h1>
+            <div class="container">
+                <div class="left_div">
+                    <h3>Hello !</h3>
+                    <h1><?php echo $result2["first_name"] ?></h1>
+                    <h4>Welcome to LaFamiliar!</h4>
+                    <br>
+                    
+                </div>
+                <div class="right_div">
+                    <div class="personal_details">
+                        <h2>Personal Details</h2>
+                        <div class="personal_data">
+                            <form action="updateAndDeleteProfile.php" method="post">
+
+                                <?php if(isset($_GET['update'])) {?>
+                                    <p class="update"><?php echo $_GET['update'] ?></p>
+                                <?php }?>
+
+                                <div class="shower_name">
+                                    <div class="shower_div">
+
+                                        <label for="">First name</label>
+                                        <br>
+                                        <div class="shower">
+                                            <input type="text" name="fname" id="" value="<?php echo $result2["first_name"] ?>">
+                                        </div>
+                                    </div>
+                                    <div class="shower_div">
+
+                                        <label for="">Last name</label>
+                                        <br>
+                                        <div class="shower">
+                                            <input type="text" name="lname" id="" value="<?php echo $result2["last_name"] ?>">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                
+                                <label for="">Email</label>
+                                <br>
+                                <div class="shower">
+                                    <input type="text" name="email" id="" value="<?php echo $result2["email"] ?>" readonly>
+                                </div>
+
+                                <label for="">Address</label>
+                                <br>
+                                <div class="shower">
+                                    <input type="text" name="address" id="" value="<?php echo $result2["address"] ?>">
+                                </div>
+                                
+                                <label for="">Phone Number</label>
+                                <br>
+                                <div class="shower">
+                                    <input type="text" name="phonenumber" id="" value="<?php echo $result2["phone"] ?>">
+                                </div>
+                                
+                                <label for="">Password</label>
+                                <br>
+                                <div class="shower">
+                                    <input type="text" name="password" id="" value="<?php echo $result2["password"] ?>">
+                                </div>
+
+                                <div> 
+                                    <input type="text" name="id" id="id" value="<?php echo $index ?>" hidden>
+                                </div>
+
+                                <br>
+                                <input type="submit" value="update Profile" class="btn_type1"  name="updateprofile">
+                                <input type="submit" value="Delete Account" class="btn_type1" name="deleteaccount">
+                            
+                            </form>
+                        </div>
+                    </div>
+                   
                 </div>
             </div>
         </div>
     </div>
-    
+    <br>
 
     <!--Footer-->
     <footer>
@@ -136,7 +157,7 @@
                     <h2>Quick Links</h2>
                     <ul>
                         <li><a href="index.php">Home</a></li>
-                        <li><a href="card.html">Hotels</a></li>
+                        <li><a href=".html">Hotels</a></li>
                         <li><a href="contactUs.php">Contact Us</a></li>
                         <li><a href="aboutUs.html">About Us</a></li>
                     </ul>
@@ -173,6 +194,31 @@
         </footer>
     <!--end-->
 
-    <script src="java/login.js"></script>
+    <script>
+        function deleteReservation() {
+
+            <?php
+
+                $sql_d = "DELETE FROM reservation WHERE Customer_NIC = '$index'";
+    
+                if($conn->query($sql_d)){
+                    header("Location:profile.php");
+                    exit();
+                }else{
+                    echo "Failed! try again";
+                }
+            ?>
+            
+        }
+    </script>
+    
+
 </body>
 </html>
+
+<?php
+}else{
+    header("Location:login.php?not logged");
+    exit();
+}
+?>
