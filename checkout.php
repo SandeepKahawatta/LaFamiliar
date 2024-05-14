@@ -1,19 +1,3 @@
-<?php
-session_start();
-
-if(isset($_SESSION['user_id'])){
-
-    $index = $_SESSION['user_id'];
-
-    require "config.php";
-
-    $sql = "SELECT * FROM user WHERE id = '$index'";
-    $result = $conn->query($sql);
-
-    $result1 = $result -> fetch_assoc();
-    
-?>
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -24,35 +8,26 @@ if(isset($_SESSION['user_id'])){
     </head>
     <body>
 
-    <!--Navigation Bar-->
-    <header>
-        <div class="navbar">
-            <div class="logo">
-                <img src="images/logo/Primary Logo.png" alt="Logo" width="250px" height="100px">  
-            </div>
-            <ul class="links">
-                <li class="nav"><a class="nav_a" href="index.php"><b>Home</b></a></li>
-                <li class="nav"><a class="nav_a" href="card.html"><b>Hotels</b></a></li>
-                <li class="nav"><a class="nav_a" href="aboutUs.html"><b>About Us</b></a></li>
-                <li class="nav"><a class="nav_a" href="contactUs.php"><b>Contact</b></a></li>
-            </ul>
-            <div class="shortcut">
-                <a href="login.php" class="btn_type1">Login</a>
+        <?php include 'navbar.php'; ?>
 
-                <div class="profile-img">
-                    <a href="profile.php" ><img src="images/refund/profile.png" width="30px" height="30px" ></a>
-                </div>
-            </div>
+        <?php
+        session_start();
 
-        </div>
-    </header>
-    <!--end-->
+        if(isset($_SESSION['user_id'])){
+            $index = $_SESSION['user_id'];
+            require "config.php";
+
+            $sql = "SELECT * FROM user WHERE id = '$index'";
+            $result = $conn->query($sql);
+            $result1 = $result -> fetch_assoc();
+            
+        ?>
 
         <div class="container">
             <form action="payment.php" method="post">
                 <div class="row">
                     <div class="col">
-                        <h3 class="title">Reservation</h3>
+                        <h3 class="title">Checkout Cart</h3>
 
                         <div class="inputBox">
                             <span>full name :</span>

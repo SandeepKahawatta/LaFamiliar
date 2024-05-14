@@ -1,11 +1,3 @@
-<?php
-session_start();
-
-if(isset($_SESSION['user_id'])){
-
-    $index = $_SESSION['user_id'];
-    
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,6 +11,13 @@ if(isset($_SESSION['user_id'])){
     <title>Profile - EventStay.com</title>
 </head>
 <body>
+    <?php include 'navbar.php'; ?>
+
+    <?php
+    if(isset($_SESSION['user_id'])){
+        $index = $_SESSION['user_id'];
+    ?>
+
     <?php
     require "config.php";
     
@@ -28,30 +27,8 @@ if(isset($_SESSION['user_id'])){
     $result2 = $result1 -> fetch_assoc();
     ?>
 
-        <!--Navigation Bar-->
-        <header>
-            <div class="navbar">
-                <div class="logo">
-                    <img src="images/logo/Primary Logo.png" alt="Logo" width="250px" height="100px">  
-                </div>
-                <ul class="links">
-                    <li class="nav"><a class="nav_a" href="index.php"><b>Home</b></a></li>
-                    <li class="nav"><a class="nav_a" href="AllFoods.php"><b>Food Ordering</b></a></li>
-                    <li class="nav"><a class="nav_a" href="cart.php"><b>Cart</b></a></li>
-                    <li class="nav"><a class="nav_a" href="aboutUs.html"><b>About Us</b></a></li>
-                    <li class="nav"><a class="nav_a" href="contactUs.php"><b>Contact</b></a></li>
-                </ul>
-                <div class="shortcut">
-                    <a href="login.php" class="btn_type1">Login</a>
+    
 
-                    <div class="profile-img">
-                        <a href="profile.php" ><img src="images/refund/profile.png" width="30px" height="30px" ></a>
-                    </div>
-                </div>
-
-            </div>
-        </header>
-        <!--end-->
     <br>
     <div class="body_container">
         <div class="outer_container">
@@ -193,24 +170,6 @@ if(isset($_SESSION['user_id'])){
             </div>
         </footer>
     <!--end-->
-
-    <script>
-        function deleteReservation() {
-
-            <?php
-
-                $sql_d = "DELETE FROM reservation WHERE Customer_NIC = '$index'";
-    
-                if($conn->query($sql_d)){
-                    header("Location:profile.php");
-                    exit();
-                }else{
-                    echo "Failed! try again";
-                }
-            ?>
-            
-        }
-    </script>
     
 
 </body>

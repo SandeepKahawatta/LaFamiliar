@@ -1,26 +1,3 @@
-<?php
-// Include config file
-require_once "config.php";
-session_start();
-// Define user ID 
-if(isset($_SESSION['user_id'])){
-
-    $user_id = $_SESSION['user_id'];
-}
-
-// Query to fetch orders for the current user
-$sql = "SELECT * FROM `order` WHERE `user` = ?";
-if ($stmt = mysqli_prepare($conn, $sql)) {
-    // Bind the user ID parameter
-    mysqli_stmt_bind_param($stmt, "i", $user_id);
-    // Execute the statement
-    mysqli_stmt_execute($stmt);
-    // Get the result
-    $result = mysqli_stmt_get_result($stmt);
-}
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,30 +9,34 @@ if ($stmt = mysqli_prepare($conn, $sql)) {
 </head>
 <body>
 
-    <!--Navigation Bar-->
-    <header>
-        <div class="navbar">
-            <div class="logo">
-                <img src="images/logo/Primary Logo.png" alt="Logo" width="250px" height="100px">  
-            </div>
-            <ul class="links">
-                <li class="nav"><a class="nav_a" href="index.php"><b>Home</b></a></li>
-                <li class="nav"><a class="nav_a" href="AllFoods.php"><b>Food Ordering</b></a></li>
-                <li class="nav"><a class="nav_a" href="cart.php"><b>Cart</b></a></li>
-                <li class="nav"><a class="nav_a" href="aboutUs.html"><b>About Us</b></a></li>
-                <li class="nav"><a class="nav_a" href="contactUs.php"><b>Contact</b></a></li>
-            </ul>
-            <div class="shortcut">
-                <a href="login.php" class="btn_type1">Login</a>
+    <?php include 'navbar.php'; 
+    if(isset($_SESSION['user_id'])){
 
-                <div class="profile-img">
-                    <a href="profile.php" ><img src="images/refund/profile.png" width="30px" height="30px" ></a>
-                </div>
-            </div>
+        $user_id = $_SESSION['user_id'];
+    }
+    ?>
 
-        </div>
-    </header>
-    <!--end-->
+    <?php
+    // Include config file
+    require_once "config.php";
+
+    if(isset($_SESSION['user_id'])){
+
+        $user_id = $_SESSION['user_id'];
+    }
+
+    // Query to fetch orders for the current user
+    $sql = "SELECT * FROM `order` WHERE `user` = ?";
+    if ($stmt = mysqli_prepare($conn, $sql)) {
+        // Bind the user ID parameter
+        mysqli_stmt_bind_param($stmt, "i", $user_id);
+        // Execute the statement
+        mysqli_stmt_execute($stmt);
+        // Get the result
+        $result = mysqli_stmt_get_result($stmt);
+    }
+
+    ?>
 
 
     <!-- Main content -->
