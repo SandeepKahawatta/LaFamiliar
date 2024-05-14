@@ -39,7 +39,7 @@
     </header>
     <!--end-->
       
-    <!--Home Image Changer-->
+    <!--Home Welcome-->
     <div class="Home_top">
         <div class="image-content">
             <h1>La<span>Familiar</span></h1>
@@ -50,7 +50,7 @@
 
     
 
-    <!--Hotel card Horisontal-->
+    <!--Food card Horizontal-->
     <div class="section" onclick="displayDetails(2)">
         <img src="images/hotel/88th ella/88-2.jpg" alt="88th ella">
         <div class="text-box">
