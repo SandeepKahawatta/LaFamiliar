@@ -1,0 +1,51 @@
+/* Navbar styles */
+.navbar {
+    width: 100%;
+    height: 80px;
+    background-color: #fd712d;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: background-color 0.3s, height 0.3s; /* Add transition for smooth height change */
+}
+
+.logo img {
+    width: auto;
+    height: 60px;
+}
+
+.links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav_a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.6rem;
+}
+
+.nav_a:hover {
+    color: #fdbf2d;
+}
+
+.shortcut {
+    display: flex;
+    align-items: center;
+    margin-right: 40px;
+}
+
+.profile-img {
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+/* Shrinking effect when scrolling */
+.navbar.scrolled {
+    height: 60px; /* Reduce height when scrolled */
+}

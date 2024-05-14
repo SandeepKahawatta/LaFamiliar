@@ -10,7 +10,7 @@
 body{
     min-height: 100vh;
     flex-direction: column;
-    background: #ffffff;
+    background: #fefaf8;
 }
 
 #h1{
@@ -31,7 +31,7 @@ body{
 
 .container .left_div{
     width: 30%;
-    background: linear-gradient(to right, #f0f0f0, #c5c5c5);
+    background: linear-gradient(to left, #fafafa, #ffc7ac);
     padding: 30px;
     border-top-left-radius: 20px;
     border-bottom-right-radius: 20px;
@@ -91,14 +91,14 @@ body{
     padding-right: 10px;
     width: 80%;
     height: 50px;
-    background: #f0f0f0;
+    background: #fff5e6;
     margin: 6px 0;
-    border: 2px solid #6d6466;
+    border: 2px solid #864b1a;
     border-radius: 10px;
 }
 
 label{
-    color: #666;
+    color: #8c3409;
     font-size: 20px;
     font-weight: 600;
 }
@@ -117,7 +117,7 @@ label{
 .myOrders_btn{
     width: 100%;
     height: 50px;
-    background: #733306;
+    background: #fd712d;
     color: #ffffff;
     font-size: 20px;
     font-weight: 600;

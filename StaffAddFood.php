@@ -13,26 +13,7 @@ $name_err = $description_err = $price_err = $image_err = "";
 </head>
 <body>
 
-    <!--Navigation Bar-->
-    <header>
-        <div class="navbar">
-            <div class="logo">
-                <img src="images/logo/Primary Logo.png" alt="Logo" width="250px" height="100px">  
-            </div>
-            <ul class="links">
-                <li class="nav"><a class="nav_a" href="staffHome.php"><b>Home</b></a></li>
-                <li class="nav"><a class="nav_a" href="staffOrders.php"><b>Orders</b></a></li>
-                <li class="nav"><a class="nav_a" href="staffAllFood.php"><b>Manage Foods</b></a></li>
-            </ul>
-            <div class="shortcut">
-                <div class="profile-img">
-                    <a href="profile.php" ><img src="images\user\profile.png" width="30px" height="30px" ></a>
-                </div>
-            </div>
-
-        </div>
-    </header>
-    <!--end-->
+    <?php include 'staffNavbar.php'; ?> 
 
     <!-- Side Navigation Bar -->
     <div class="sidenav">

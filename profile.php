@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="style/style_NavBar.css">
     <link rel="stylesheet" type="text/css" href="style/style_footer_profile.css">
     <link rel="icon" type="image/X-icon" href="images/logo/Secondary Logo.png">
-    <title>Profile - EventStay.com</title>
+    <title>Profile - LaFamiliar.com</title>
 </head>
 <body>
     <?php include 'navbar.php'; ?>
