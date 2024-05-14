@@ -29,11 +29,9 @@
 
         </div>
     </header>
-    <br>
-    <br>
-    <h1>Cart Page</h1>
-
-    <?php
+    <div class="cart-container">
+        <div class="cart-container-left">
+        <?php
 session_start();
 require "config.php";
 
@@ -91,8 +89,67 @@ if (mysqli_num_rows($result) > 0) {
     echo "Your cart is empty.";
 }
 
+
+?>
+    </div>
+        <div class="cart-container-right">
+            <div class="cart-summery">
+                <h3 class="cart-summery-header">Summer of the Cart</h3>
+                
+                <?php
+
+$user = $_SESSION['user_id'];
+
+// Fetch cart items for the logged-in user with details from the food table
+$query = "SELECT cart.*, food.name AS food_name, food.image AS food_image
+          FROM cart
+          INNER JOIN food ON cart.food= food.id
+          WHERE cart.user = '$user'";
+$result = mysqli_query($conn, $query);
+
+$subtotal = 0;
+
+if (mysqli_num_rows($result) > 0) {
+    // Iterate over each cart item
+    while ($row = mysqli_fetch_assoc($result)) {
+        ?>
+        <div class="cart-summery-items">
+                    <span><?php echo $row['food_name']; ?></span>
+                    <span><?php echo $row['total']; ?></span>
+
+                    </div>
+                    <?php
+
+
+                    $subtotal = $subtotal +  $row['total'];
+    }
+} else {
+    echo "Your cart is empty.";
+}
+?>
+                <div class="cart-summery-total">
+                    <span>Subtotal:</span><span id="subtotal"><?php echo "Rs. " . number_format($subtotal,2); ?></span>
+                </div>
+
+
+                <div class="cart-summery-btn">
+                    <form action="checkoutProcess.php" method="post">
+                        
+                        <button type="submit" name="checkout">Checkout</button>
+                    </form>
+                </div>
+
+                
+            </div>
+        </div>
+    </div>
+
+<?php
 mysqli_close($conn);
 ?>
+        
+
+    
 
 
 
