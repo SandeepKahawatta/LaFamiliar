@@ -31,7 +31,7 @@ if(isset( $_POST["username"]) && isset($_POST["logpassword"])){
                 
                 $_SESSION['user_id'] = $data["id"];
             
-                header("Location:card.html");
+                header("Location:AllFoods.php");
                 exit();
 
             }else{

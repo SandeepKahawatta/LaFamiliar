@@ -9,6 +9,29 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
+
+
+<header>
+        <div class="navbar">
+            <div class="logo">
+                <img src="images/logo/Primary Logo.png" alt="Logo" width="250px" height="100px">  
+            </div>
+            <ul class="links">
+                <li class="nav"><a class="nav_a" href="index.php"><b>Home</b></a></li>
+                <li class="nav"><a class="nav_a" href="AllFoods.php"><b>Food Ordering</b></a></li>
+                <li class="nav"><a class="nav_a" href="aboutUs.html"><b>About Us</b></a></li>
+                <li class="nav"><a class="nav_a" href="contactUs.php"><b>Contact</b></a></li>
+            </ul>
+            <div class="shortcut">
+                <a href="login.php" class="btn_type1">Login</a>
+
+                <div class="profile-img">
+                    <a href="profile.php" ><img src="images/refund/profile.png" width="30px" height="30px" ></a>
+                </div>
+            </div>
+
+        </div>
+    </header>
 <?php
 
 require "config.php";
@@ -40,8 +63,9 @@ if(mysqli_num_rows($result) > 0) {
 
                 <br>
 
-                <form method="POST">
+                <form action="addToCartProcess.php" method="POST">
                     <input type="hidden" name="food_id" value="<?php echo $row['id']; ?>">
+                    <input type="hidden" name="food_price" value="<?php echo $row['price']; ?>">
                     <label for="quantity">Quantity:</label>
                     <input type="number" name="quantity" value="1" min="1">
                     <div class="read-more">
