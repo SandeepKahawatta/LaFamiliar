@@ -3,15 +3,33 @@
 require_once "config.php";
 
 // Query pending orders
-$query_pending = "SELECT * FROM `order` WHERE status = 'Pending'";
+$query_pending = "SELECT o.id AS order_id, u.first_name, u.last_name, u.address, o.price AS order_price, GROUP_CONCAT(f.name, ' (Quantity: ', of.quantity, ')') AS food_items
+                  FROM `order` o
+                  JOIN `user` u ON o.user = u.id
+                  LEFT JOIN `order_food` of ON o.id = of.order_id
+                  LEFT JOIN `food` f ON of.food_id = f.id
+                  WHERE o.status = 'Pending'
+                  GROUP BY o.id";
 $result_pending = mysqli_query($conn, $query_pending);
 
 // Query approved orders
-$query_approved = "SELECT * FROM `order` WHERE status = 'Approved'";
+$query_approved = "SELECT o.id AS order_id, u.first_name, u.last_name, u.address, o.price AS order_price, GROUP_CONCAT(f.name, ' (Quantity: ', of.quantity, ')') AS food_items
+                  FROM `order` o
+                  JOIN `user` u ON o.user = u.id
+                  LEFT JOIN `order_food` of ON o.id = of.order_id
+                  LEFT JOIN `food` f ON of.food_id = f.id
+                  WHERE o.status = 'Approved'
+                  GROUP BY o.id";
 $result_approved = mysqli_query($conn, $query_approved);
 
 // Query rejected orders
-$query_rejected = "SELECT * FROM `order` WHERE status = 'Rejected'";
+$query_rejected = "SELECT o.id AS order_id, u.first_name, u.last_name, u.address, o.price AS order_price, GROUP_CONCAT(f.name, ' (Quantity: ', of.quantity, ')') AS food_items
+                  FROM `order` o
+                  JOIN `user` u ON o.user = u.id
+                  LEFT JOIN `order_food` of ON o.id = of.order_id
+                  LEFT JOIN `food` f ON of.food_id = f.id
+                  WHERE o.status = 'Rejected'
+                  GROUP BY o.id";
 $result_rejected = mysqli_query($conn, $query_rejected);
 ?>
 
@@ -31,7 +49,9 @@ $result_rejected = mysqli_query($conn, $query_rejected);
 </head>
 <body>
 
+    <!-- Navigation Bar -->
     <?php include 'staffNavbar.php'; ?> 
+    <!-- End Navigation Bar -->
     
     <!-- Staff Orders Section -->
     <div class="content">
@@ -42,11 +62,17 @@ $result_rejected = mysqli_query($conn, $query_rejected);
         <?php if(mysqli_num_rows($result_pending) > 0): ?>
             <?php while($row = mysqli_fetch_assoc($result_pending)): ?>
                 <div class="order">
-                    <h3>Order ID: <?php echo $row['id']; ?></h3>
-                    <p class="total-amount">Total Amount: Rs. <?php echo $row['price']; ?></p>
+                    <h3>Order ID: <?php echo $row['order_id']; ?></h3>
+                    <p><b>Customer Name:</b> <?php echo $row['first_name'] . " " . $row['last_name']; ?></p>
+                    <p><b>Address:</b> <?php echo $row['address']; ?></p>
+                    <p><b>Food Items:</b></p>
+                    <ul>
+                        <li><?php echo $row['food_items']; ?></li>
+                    </ul>
+                    <p>Total Price: Rs. <?php echo $row['order_price']; ?></p>
                     <div class="buttons">
-                        <a href="processApproveOrder.php?id=<?php echo $row['id']; ?>" class="approve-button">Approve</a>
-                        <a href="processRejectOrder.php?id=<?php echo $row['id']; ?>" class="reject-button">Reject</a>
+                        <a href="processApproveOrder.php?id=<?php echo $row['order_id']; ?>" class="approve-button">Approve</a>
+                        <a href="processRejectOrder.php?id=<?php echo $row['order_id']; ?>" class="reject-button">Reject</a>
                     </div>
                 </div>
             <?php endwhile; ?>
@@ -59,8 +85,14 @@ $result_rejected = mysqli_query($conn, $query_rejected);
         <?php if(mysqli_num_rows($result_approved) > 0): ?>
             <?php while($row = mysqli_fetch_assoc($result_approved)): ?>
                 <div class="order">
-                    <h3>Order ID: <?php echo $row['id']; ?></h3>
-                    <p class="total-amount">Total Amount: Rs. <?php echo $row['price']; ?></p>
+                    <h3>Order ID: <?php echo $row['order_id']; ?></h3>
+                    <p><b>Customer Name:</b> <?php echo $row['first_name'] . " " . $row['last_name']; ?></p>
+                    <p><b>Address:</b> <?php echo $row['address']; ?></p>
+                    <p><b>Food Items:</b></p>
+                    <ul>
+                        <li><?php echo $row['food_items']; ?></li>
+                    </ul>
+                    <p>Total Price: Rs. <?php echo $row['order_price']; ?></p>
                 </div>
             <?php endwhile; ?>
         <?php else: ?>
@@ -72,8 +104,14 @@ $result_rejected = mysqli_query($conn, $query_rejected);
         <?php if(mysqli_num_rows($result_rejected) > 0): ?>
             <?php while($row = mysqli_fetch_assoc($result_rejected)): ?>
                 <div class="order">
-                    <h3>Order ID: <?php echo $row['id']; ?></h3>
-                    <p class="total-amount">Total Amount: Rs. <?php echo $row['price']; ?></p>
+                    <h3>Order ID: <?php echo $row['order_id']; ?></h3>
+                    <p><b>Customer Name:</b> <?php echo $row['first_name'] . " " . $row['last_name']; ?></p>
+                    <p><b>Address:</b> <?php echo $row['address']; ?></p>
+                    <p><b>Food Items:</b></p>
+                    <ul>
+                        <li><?php echo $row['food_items']; ?></li>
+                    </ul>
+                    <p>Total Price: Rs. <?php echo $row['order_price']; ?></p>
                 </div>
             <?php endwhile; ?>
         <?php else: ?>
