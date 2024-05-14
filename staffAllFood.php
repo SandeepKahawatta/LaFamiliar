@@ -10,6 +10,7 @@ $name_err = $description_err = $price_err = $image_err = "";
     <link rel="stylesheet" href="style/style_staffAddFood.css">
     <link rel="stylesheet" href="style/style_footer.css">
     <link rel="stylesheet" href="style/style_card.css">
+    <link rel="stylesheet" href="style/style_staffAllFood.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" type="image/X-icon" href="images/logo/Secondary Logo.png">
     <title>Add Food - LaFamiliar.com</title>
@@ -25,7 +26,7 @@ $name_err = $description_err = $price_err = $image_err = "";
             <ul class="links">
                 <li class="nav"><a class="nav_a" href="staffHome.php"><b>Home</b></a></li>
                 <li class="nav"><a class="nav_a" href="staffOrders.php"><b>Orders</b></a></li>
-                <li class="nav"><a class="nav_a" href="staffAllFood.php"><b>Manage Foods</b></a></li>
+                <li class="nav"><a class="nav_a" href="staffAllFood.php"><b>Manage Food</b></a></li>
             </ul>
             <div class="shortcut">
                 <div class="profile-img">
@@ -77,6 +78,12 @@ $name_err = $description_err = $price_err = $image_err = "";
 
                     <br>
 
+                    <!-- Edit and Delete buttons -->
+                    <div class="buttons">
+                        <a href="editFood.php?id=<?php echo $row['id']; ?>" class="edit-button">Edit</a>
+                        <a href="deleteFood.php?id=<?php echo $row['id']; ?>" class="delete-button">Delete</a>
+                    </div>
+                    <!-- End Edit and Delete buttons -->
 
                 </div>
             </div>
