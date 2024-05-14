@@ -24,6 +24,7 @@
             <ul class="links">
                 <li class="nav"><a class="nav_a" href="index.php"><b>Home</b></a></li>
                 <li class="nav"><a class="nav_a" href="AllFoods.php"><b>Food Ordering</b></a></li>
+                <li class="nav"><a class="nav_a" href="cart.php"><b>Cart</b></a></li>
                 <li class="nav"><a class="nav_a" href="aboutUs.html"><b>About Us</b></a></li>
                 <li class="nav"><a class="nav_a" href="contactUs.php"><b>Contact</b></a></li>
             </ul>
