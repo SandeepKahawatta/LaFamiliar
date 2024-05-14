@@ -46,16 +46,10 @@ if(isset($_GET['id'])) {
 </head>
 <body>
 
-    <!--Navigation Bar-->
-    <header>
-        <!-- Your navigation bar code here -->
-    </header>
-    <!--end-->
+<?php include 'staffNavbar.php'; ?>  
 
     <!-- Side Navigation Bar -->
-    <div class="sidenav">
-        <!-- Your side navigation bar code here -->
-    </div>
+    
 
     <div class="content">
         <h1>Edit Food</h1>
@@ -84,7 +78,7 @@ if(isset($_GET['id'])) {
             <div class="form-group">
                 <input type="hidden" name="food_id" value="<?php echo $foodId; ?>">
                 <input type="submit" class="btn btn-primary" value="Submit">
-                <a href="staffManageFoods.php" class="btn btn-secondary ml-2">Cancel</a>
+                <a href="staffAllFood.php" class="btn btn-secondary ml-2">Cancel</a>
             </div>
         </form>
     </div>

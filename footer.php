@@ -28,9 +28,7 @@
                     <h2>Quick Links</h2>
                     <ul>
                         <li><a href="index.php">Home</a></li>
-                        <li><a href="card.html">Hotels</a></li>
-                        <li><a href="contactUs.php">Contact Us</a></li>
-                        <li><a href="aboutUs.html">About Us</a></li>
+                        <li><a href="AllFoods.php">Menu</a></li>
                     </ul>
                 </div>
 
