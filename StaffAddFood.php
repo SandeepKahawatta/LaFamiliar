@@ -22,21 +22,22 @@ $name_err = $description_err = $price_err = $image_err = "";
             <ul class="links">
                 <li class="nav"><a class="nav_a" href="staffHome.php"><b>Home</b></a></li>
                 <li class="nav"><a class="nav_a" href="staffOrders.php"><b>Orders</b></a></li>
-                <li class="nav"><a class="nav_a" href="staffManageFoods.php"><b>Manage Foods</b></a></li>
+                <li class="nav"><a class="nav_a" href="staffAllFood.php"><b>Manage Foods</b></a></li>
             </ul>
             <div class="shortcut">
                 <div class="profile-img">
-                    <a href="profile.php"><img src="images\user\profile.png" width="30px" height="30px"></a>
+                    <a href="profile.php" ><img src="images\user\profile.png" width="30px" height="30px" ></a>
                 </div>
             </div>
+
         </div>
     </header>
     <!--end-->
 
     <!-- Side Navigation Bar -->
     <div class="sidenav">
-        <a href="staffAddFood.php">Add Foods</a>
-        <a href="editFood.php">All Foods</a>
+        <a href="staffAddFood.php">Add Food</a>
+        <a href="staffAllFood.php">All Food</a>
     </div>
 
     <div class="content">

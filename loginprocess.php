@@ -19,10 +19,10 @@ if(isset( $_POST["username"]) && isset($_POST["logpassword"])){
     }else{
 
         $sql1 = "SELECT * FROM user WHERE email = '$email' AND password = '$log_password'";
-        //$sql2 = "SELECT * FROM staff WHERE email = '$email' AND password = '$log_password'";
+        $sql2 = "SELECT * FROM staff WHERE email = '$email' AND password = '$log_password'";
         
         $check = $conn->query($sql1);
-        //$check2 = $conn->query($sql2);
+        $check2 = $conn->query($sql2);
 
         if($check-> num_rows > 0){
             $data = $check->fetch_assoc();
