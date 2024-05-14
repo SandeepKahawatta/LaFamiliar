@@ -62,7 +62,7 @@ if(isset($_SESSION['user_id'])){
                     <h1><?php echo $result2["first_name"] ?></h1>
                     <h4>Welcome to LaFamiliar!</h4>
                     <br>
-                    
+                    <button onclick="window.location='myOrders.php'" class="myOrders_btn">My Orders</button>     
                 </div>
                 <div class="right_div">
                     <div class="personal_details">
