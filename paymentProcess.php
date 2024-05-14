@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submitPayment'])) {
             $deleteCartSql = "DELETE FROM cart WHERE user = '$userId'";
             if ($conn->query($deleteCartSql) === TRUE) {
                 // Redirect to payment success page or any other page
-                header("Location: payment.php?message=Payment successful!");
+                header("Location: myOrders.php?message=Payment successful!");
                 exit();
             } else {
                 $errorMessage = "Error deleting cart items: " . $conn->error;

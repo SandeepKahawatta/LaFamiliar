@@ -4,6 +4,7 @@
     margin: 0 auto;
     padding: 20px;
     padding-top: 50px;
+    margin-top: 50px;
 }
 
 h1 {
@@ -92,7 +93,7 @@ input[type="file"]:hover::before {
     left: 0;
     background-color: #111;
     overflow-x: hidden;
-    padding-top: 100px;
+    padding-top: 120px;
 
 }
 
@@ -100,7 +101,7 @@ input[type="file"]:hover::before {
     padding: 10px 15px;
     text-decoration: none;
     font-size: 18px;
-    color: #818181;
+    color: #ff871f;
     display: block;
 }
 

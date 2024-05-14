@@ -47,7 +47,6 @@ $name_err = $description_err = $price_err = $image_err = "";
             <div class="form-group">
                 <input type="submit" class="btn btn-primary" value="Submit">
             </div>
-            <a href="staffManageFoods.php" class="btn btn-secondary ml-2">Cancel</a>
         </form>
     </div>
 

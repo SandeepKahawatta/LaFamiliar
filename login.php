@@ -33,7 +33,7 @@
                     </div>
                     <input type="submit" onclick="signin()" value="Login" class="btn_login">
                     <p class="text">By signing in or creating an account, you agree with our <span>Terms & conditions</span> and <span>Privacy statement</span>.</p>
-                    <p class="text">Copyright © EventStay 2023 All Rights Reserved.</p>
+                    <p class="text">Copyright © LaFamiliar 2023 All Rights Reserved.</p>
                 </form>
     
                 <form action="submitsignup.php" method="post" class="sign-up-form">
@@ -68,7 +68,7 @@
                     </div>
                     <input type="submit" value="sign up" name="submitlog" class="btn_login">
                     <p class="text">By signing in or creating an account, you agree with our <span>Terms & conditions</span> and <span>Privacy statement</span>.</p>
-                    <p class="text">Copyright © EventStay 2023 All Rights Reserved.</p>
+                    <p class="text">Copyright © LaFamiliar 2023 All Rights Reserved.</p>
                 </form>
             </div>
             <div class="panels-container">
@@ -99,7 +99,7 @@
                 <div class="footer_width about">
                     <h2>About</h2>
                     <p>
-                        At EventStay.com, we are a team of passionate technology expert. We are understand the importance of a comfortable and enjoyable place to arrange your special events with your favourities. That's why we have designed our platform to connect you with a vast selection of hotels, making it effortless for you to discover and book your ideal accommodations
+                        At LaFamiliar.com, we are a team of passionate technology expert. We are understand the importance of a comfortable and enjoyable place to arrange your special events with your favourities. That's why we have designed our platform to connect you with a vast selection of hotels, making it effortless for you to discover and book your ideal accommodations
                     </p>
                     <div class="social_media">
                         <ul>
