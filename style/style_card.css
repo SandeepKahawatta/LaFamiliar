@@ -94,7 +94,7 @@ header{
     margin: 50px auto;
     background-color: #f5f5f5;
     border-radius: 30px;
-    width: 80%;
+    width: 60%;
     padding: 30px 30px 30px 30px;
     cursor: pointer;
 }
@@ -104,6 +104,8 @@ header{
     border: none;
     border-radius: 30px;
     margin-right: 30px;
+    width: 200px;
+    height: auto;
     filter: grayscale(50%);
 }
 
