@@ -29,7 +29,7 @@ if(isset( $_POST["username"]) && isset($_POST["logpassword"])){
 
             if ($data["email"] == $email && $data["password"] == $log_password){
                 
-                $_SESSION['user_name'] = $_POST['username'];
+                $_SESSION['user_name'] = $data["id"];
             
                 header("Location:card.html");
                 exit();
@@ -46,7 +46,7 @@ if(isset( $_POST["username"]) && isset($_POST["logpassword"])){
 
             if ($data["email"] == $email && $data["password"] == $log_password){
                 
-                $_SESSION['user_name'] = $_POST['username'];
+                $_SESSION['user_name'] = $data["id"];
             
                 header("Location: staffHome.php");
                 exit();
