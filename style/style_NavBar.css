@@ -1,12 +1,14 @@
 /*header*/
-
 header{
     position: fixed;
-    top: 0; left: 0; right: 0;
+    top: 0; 
+    left: 0; 
+    right: 0;
     z-index: 1000;
     padding: 0 2rem;
-    background: #e7e3e3;
+    background: transparent; /* Set background to transparent */
     margin-bottom: 150px auto;
+    transition: background-color 0.3s ease; /* Add transition for smooth color change */
 }
 
 .nav{
@@ -15,45 +17,45 @@ header{
 
 .nav_a{
     text-decoration: none;
-    color: black;
-    font-size: 2rem;  
+    color: #fff; /* Change text color to white */
+    font-size: 1.6rem; /* Reduce font size for better appearance */
 }
 
 .nav_a:hover{
-    color: #A9927D;
+    color: #fdbf2d; /* Change hover color to a lighter orange */
 }
 
 .btn_type1{
     text-decoration: none;
-    color: rgb(0, 0, 0);
-    font-size: 1.5rem;
-    background-color: #aaaaaa;
+    color: #fff;
+    font-size: 1.4rem; /* Reduce font size for better appearance */
+    background-color: #fd712d; /* Set dark orange background color */
     padding: 0.5rem 1rem;
     border: none;
     outline: none;
     border-radius: 20px;
     font-weight: bold;
     cursor: pointer;
-    transition: scale 0.2 ease;
+    transition: scale 0.2s ease;
 }
 
 .btn_type1:hover{
-    color: #ffffff;
-    scale: 1.05;
+    background-color: #fdbf2d; /* Change hover background color */
+    transform: scale(1.05); /* Use transform instead of scale property */
 }
 
 .btn_type1:active{
-    scale: 0.95;
+    transform: scale(0.95); /* Use transform instead of scale property */
 }
 
 .profile-img{
-  cursor: pointer;
-  margin-left: 10px;
+    cursor: pointer;
+    margin-left: 10px;
 }
 
 .navbar{
     width: 100%;
-    height: 60px;
+    height: 80px; /* Increase navbar height for better visibility */
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -61,9 +63,9 @@ header{
 }
 
 .shortcut{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .navbar .links{
@@ -71,4 +73,8 @@ header{
     gap: 2rem;
 }
 
+/* Change navbar background color on scroll */
+header.scrolled {
+    background-color: #fd712d; /* Change background color on scroll */
+}
 /*header end*/

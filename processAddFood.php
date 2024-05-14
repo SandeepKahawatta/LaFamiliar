@@ -61,7 +61,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     $param_image = basename($_FILES["image"]["name"]);
                     
                     if(mysqli_stmt_execute($stmt)){
-                        header("location: staffManageFoods.php");
+                        header("location: staffAllFood.php");
                         exit();
                     } else{
                         echo "Something went wrong. Please try again later.";
