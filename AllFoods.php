@@ -15,12 +15,12 @@
     <?php include 'navbar.php'; ?>
 
 
-    <div class="search-container">
-        <form action="AllFoods.php" method="GET">
-            <input type="text" placeholder="Search for food..." name="search">
-            <button type="submit"><i class="fa fa-search"></i></button>
-        </form>
-    </div>
+    <div class="search-container" style="margin-top: 100px;">
+    <form action="AllFoods.php" method="GET">
+        <input type="text" placeholder="Search for food..." name="search" style="padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+        <button type="submit" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer;"><i class="fa fa-search"></i></button>
+    </form>
+</div>
 
 
     <?php
@@ -71,8 +71,8 @@ if(mysqli_num_rows($result) > 0) {
                     <form action="addToCartProcess.php" method="POST">
                         <input type="hidden" name="food_id" value="<?php echo $row['id']; ?>">
                         <input type="hidden" name="food_price" value="<?php echo $row['price']; ?>">
-                        <label for="quantity">Quantity:</label>
-                        <input type="number" name="quantity" value="1" min="1">
+                        <label for="quantity" style="display: block; margin-bottom: 10px;">Quantity:</label>
+                        <input type="number" name="quantity" value="1" min="1" style="padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
                         <div class="read-more">
                             <button type="submit" name="add_to_cart">Add to Cart</button>
                         </div>
