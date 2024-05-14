@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,12 +8,13 @@
     <link rel="stylesheet" href="style/style_location.css">
     <link rel="stylesheet" href="style/style_review.css">
     <link rel="stylesheet" href="style/style_footer.css">
+    <link rel="stylesheet" href="style/style_staffOrders.css">
     <link rel="icon" type="image/X-icon" href="images/logo/Secondary Logo.png">
     <title>LaFamiliar.com</title>
 </head>
 <body>
 
-    <!--Navigation Bar-->
+    <!-- Navigation Bar -->
     <header>
         <div class="navbar">
             <div class="logo">
@@ -31,26 +30,45 @@
                     <a href="profile.php" ><img src="images\user\profile.png" width="30px" height="30px" ></a>
                 </div>
             </div>
-
         </div>
     </header>
-    <!--end-->
+    <!-- End Navigation Bar -->
     
-    
+    <!-- Staff Orders Section -->
+    <div class="content">
+        <h1>Staff Orders</h1>
+        <!-- PHP code to display orders -->
+        <?php
+        // Include config file
+        require_once "config.php";
 
-    <!--Home Welcome-->
-    <div class="Home_top">
-        <div class="image-content">
-            <h1>La<span>Familiar</span></h1>
-            <a href="aboutUs.html">Welcome</a>
-        </div>
+        // Query to retrieve orders from the database
+        $query = "SELECT * FROM `order`";
+        $result = mysqli_query($conn, $query);
+
+        // Check if any orders are found
+        if(mysqli_num_rows($result) > 0) {
+            // Iterate over each order and display its details
+            while($row = mysqli_fetch_assoc($result)) {
+                ?>
+                <div class="order">
+                    <h2>Order ID: <?php echo $row['id']; ?></h2>
+                    <!-- Additional order details -->
+                    <p class="total-amount">Total Amount: Rs. <?php echo $row['price']; ?></p>
+                    <!-- Add more order details here as needed -->
+                </div>
+                <?php
+            }
+        } else {
+            // If no orders found, display a message
+            echo "<p>No orders found in the database.</p>";
+        }
+
+        // Close the database connection
+        mysqli_close($conn);
+        ?>
     </div>
-    <br>
-
-    <br><br><br>
-    <span>staff orders</span>
-
+    <!-- End Staff Orders Section -->
 
 </body>
 </html>
-
