@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,12 +8,15 @@
     <link rel="stylesheet" href="style/style_location.css">
     <link rel="stylesheet" href="style/style_review.css">
     <link rel="stylesheet" href="style/style_footer.css">
+    <link rel="stylesheet" href="style/style_staffManageFoods.css">
     <link rel="icon" type="image/X-icon" href="images/logo/Secondary Logo.png">
     <title>LaFamiliar.com</title>
 </head>
 <body>
 
-    <!--Navigation Bar-->
+    
+
+    <!-- Navigation Bar -->
     <header>
         <div class="navbar">
             <div class="logo">
@@ -31,16 +32,17 @@
                     <a href="profile.php" ><img src="images\user\profile.png" width="30px" height="30px" ></a>
                 </div>
             </div>
-
         </div>
     </header>
     <!--end-->
 
-    <br><br><br>
-    <span>staff manage foods</span>
+    <!-- Side Navigation Bar -->
+    <div class="sidenav">
+        <a href="staffAddFood.php">Add Foods</a>
+        <a href="editFood.php">All Foods</a>
+    </div>
 
-
+ 
 
 </body>
 </html>
-
