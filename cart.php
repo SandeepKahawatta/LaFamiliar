@@ -39,7 +39,7 @@ require "config.php";
 $user = $_SESSION['user_id'];
 
 // Fetch cart items for the logged-in user with details from the food table
-$query = "SELECT cart.*, food.name AS food_name, food.image AS food_image
+$query = "SELECT cart.*, food.name AS food_name, food.image AS food_image, food.price AS food_price
           FROM cart
           INNER JOIN food ON cart.food= food.id
           WHERE cart.user = '$user'";
@@ -72,6 +72,7 @@ if (mysqli_num_rows($result) > 0) {
                         <form action="updateCartItem.php" method="post">
                             <input type="hidden" name="cart_id" value="<?php echo $row['id']; ?>">
                             <input type="number" name="quantity" value="<?php echo $row['quantity']; ?>">
+                            <input type="number" name="price" value="<?php echo $row['food_price']; ?>">
                             <button type="submit" class="update-button">Update</button>
                         </form>
                         <form action="removeCartItem.php" method="post">
@@ -133,8 +134,7 @@ if (mysqli_num_rows($result) > 0) {
 
 
                 <div class="cart-summery-btn">
-                    <form action="checkoutProcess.php" method="post">
-                        
+                    <form action="checkout.php" method="post">
                         <button type="submit" name="checkout">Checkout</button>
                     </form>
                 </div>

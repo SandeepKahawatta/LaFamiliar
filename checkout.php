@@ -1,13 +1,13 @@
 <?php
 session_start();
 
-if(isset($_SESSION['user_name'])){
+if(isset($_SESSION['user_id'])){
 
-    $index = $_SESSION['NIC'];
+    $index = $_SESSION['user_id'];
 
     require "config.php";
 
-    $sql = "SELECT * FROM Registered_User WHERE NIC = '$index'";
+    $sql = "SELECT * FROM user WHERE id = '$index'";
     $result = $conn->query($sql);
 
     $result1 = $result -> fetch_assoc();
@@ -18,7 +18,7 @@ if(isset($_SESSION['user_name'])){
 <html>
     <head>
 
-        <link rel="stylesheet" href="style/style_payment&reservation.css">
+        <link rel="stylesheet" href="style/style_checkout.css">
         <link rel="stylesheet" href="style/style_footer.css">
 
     </head>
@@ -49,73 +49,71 @@ if(isset($_SESSION['user_name'])){
     <!--end-->
 
         <div class="container">
-            <form action="reservationprocess.php" method="post">
+            <form action="payment.php" method="post">
                 <div class="row">
                     <div class="col">
                         <h3 class="title">Reservation</h3>
 
                         <div class="inputBox">
                             <span>full name :</span>
-                            <input type="text" name="name" value="<?php echo $result1["F_Name"] ?>" readonly>
+                            <input type="text" name="name" value="<?php echo $result1["first_name"] ?>" readonly>
                         </div>
                         <div class="inputBox">
                             <span>email :</span>
-                            <input type="email" name="email" value="<?php echo $result1["User_Email"] ?>" readonly>
+                            <input type="email" name="email" value="<?php echo $result1["email"] ?>" readonly>
                         </div>
                         <div class="inputBox">
                             <span>address :</span>
-                            <input type="text" name="address" placeholder="Enter adress" required>
+                            <input type="text" name="address" value="<?php echo $result1["address"] ?>" required>
                         </div>
                         <div class="inputBox">
                             <span>Phone Number :</span>
-                            <input type="text" name="phone" pattern="[o-9]{10}" value="<?php echo $result1["P_No"] ?>" >
+                            <input type="text" name="phone" pattern="[o-9]{10}" value="<?php //echo $result1["phone"] ?>" >
                         </div>
 
-                        <div class="flexbox">
-                            <div class="inputBox">
-                                <span>NIC :</span>
-                                <input type="text" name="NIC" value="<?php echo $result1["NIC"] ?>" readonly>
-                            </div>
-                            <div class="inputBox">
-                                <span>Check-in-Date :</span>
-                                <input type="date" name="date" placeholder="" required>
-                            </div>
+                        <?php
 
+$subtotal = 0;
+// Assume $user is the user ID retrieved from the session
+$user = $_SESSION['user_id'];
 
-                        </div>
+// Fetch cart items for the logged-in user with details from the food table
+$query = "SELECT cart.*, food.name AS food_name, food.image AS food_image
+          FROM cart
+          INNER JOIN food ON cart.food= food.id
+          WHERE cart.user = '$user'";
+$result = mysqli_query($conn, $query);
 
-                        <div class="flex">
-                            <div class="inputBox">
-                                <span>Hotels:</span>
-                                <select name="hotel" id="hotels">
-                                    <option value="">Select a Hotel</option>
-                                    <option value="Wild Coast Tented Lodge">Wild Coast Tented Lodge</option>
-                                    <option value="88th Ella">88th Ella</option>
-                                    <option value="Bilin Tree House">Bilin Tree House</option>
-                                    <option value="Cassandra Culture Resort">Cassandra Culture Resort</option>
-                                    <option value="Earl's Regent Hotel">Earl's Regent Hotel</option>
-                                    <option value="Fresco Water Villa">Fresco Water Villa</option>
-                                    <option value="Queen's Hotel">Queen's Hotel</option>
-                                    <option value="Hide Ella Hotel & Resort">Hide Ella Hotel & Resort</option>
-                                    <option value="Marino Beach Colombo">Marino Beach Colombo</option>
-                                    <option value="The Kingsbury Colombo">The Kingsbury Colombo</option>
-                                    <option value="Uga Bay">Uga Bay</option>
-                                    <option value="Uga Chena Huts">Uga Chena Huts</option>
-                                </select>
-                            </div>
-        
-                            <div class="inputBox">
-                                <span>Events:</span>
-                                <select name="event" id="hotels">
-                                    <option value="">Select an Event</option>
-                                    <option value="Birthday Party">Birthday Party</option>
-                                    <option value="Costume party">Costume party</option>
-                                    <option value="Talent show">Talent show</option>
-                                    <option value="Game Night">Game Night</option>
-                                    <option value="Camping trip">Camping trip</option>
-                                </select>
-                            </div>
-                        </div>
+// Check if any cart items are found
+if (mysqli_num_rows($result) > 0) {
+    // Iterate over each cart item
+    while ($row = mysqli_fetch_assoc($result)) {
+        ?>
+
+<div  class="checkout-product">
+    <img src="images/cards/<?php echo $row['food_image']?>" alt="" height="100px" width="100px"/>
+    <div class="details">
+        <h4><?php echo $row['food_name'] ?></h4>
+        <p>Quantity:<?php
+        echo $row['quantity']
+        ?>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;Price: <?php echo number_format( $row['total'], 2 )?>
+        &nbsp;&nbsp;
+    </div>
+</div>
+
+<?php
+
+$subtotal = $subtotal + $row['total'];
+
+    }
+} else {
+    // Display a message if no cart items are found
+    echo "Your cart is empty.";
+}
+?>
+
+                        <h2 > Sub Total : </h2><input name="subTotal" value="<?php echo $subtotal ?>" >
+                        
 
                         <div class="inputBox">
                             <span>Special Requests :</span>
@@ -126,9 +124,7 @@ if(isset($_SESSION['user_name'])){
                 </div>
 
                 
-                 <input type="submit" name="submit" value="Submit Now" class="submit-btn" >
-                 <a href="payment.php" class="submit-btn" >Payment</a>
-                 <button type="submit" onclick="window.location='Reservation-Details.php'" class="btn_type1">Activities
+                 <input type="submit" name="submit" value="Payment" class="submit-btn" >
                 
                 
             </form>
