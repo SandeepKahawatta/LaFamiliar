@@ -1,5 +1,5 @@
 body{
-  background-color: #fff9ee;
+  background-color: #ffffff;
 }
 
 .seller-bag-container{
@@ -37,6 +37,7 @@ body{
 
   
   .product-page {
+    background-color: #fff9f6;
     display: flex;
     border: 1px solid #ddd;
     border-radius: 30px;
@@ -271,6 +272,7 @@ body{
     margin-top: 80px;
     gap: 10px;
     padding-left: 20px;
+    margin-bottom: 50px;
   }
 
   .cart-container-left{
@@ -294,6 +296,7 @@ body{
     height: 400px;
     margin: 0 auto;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin-bottom: 50px;
   }
 
   .cart-summery-header{

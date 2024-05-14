@@ -11,7 +11,6 @@
         <?php include 'navbar.php'; ?>
 
         <?php
-        session_start();
 
         if(isset($_SESSION['user_id'])){
             $index = $_SESSION['user_id'];

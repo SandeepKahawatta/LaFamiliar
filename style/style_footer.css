@@ -1,7 +1,7 @@
 a {
     text-decoration: none;
     transition: .5s;
-    color: #28282b;
+    color: #000000;
 }
 
 ul, li {
@@ -9,8 +9,8 @@ ul, li {
 }
 
 footer {
-    background-color: #f0f0f0;
-    color: #28282b;
+    background-color: #fd712d;
+    color: #ffffff;
 
 }
 

@@ -16,21 +16,24 @@
             <ul class="links">
                 <li class="nav"><a class="nav_a" href="index.php"><b>Home</b></a></li>
                 <li class="nav"><a class="nav_a" href="AllFoods.php"><b>Menu</b></a></li>
-                <li class="nav"><a class="nav_a" href="cart.php"><b>Cart</b></a></li>
+                <?php
+                session_start();
+                if(isset($_SESSION['user_id'])) {
+                    // If user is logged in, display "Cart" link
+                    echo '<li class="nav"><a class="nav_a" href="cart.php"><b>Cart</b></a></li>';
+                }
+                ?>
                 <li class="nav"><a class="nav_a" href="aboutUs.html"><b>About Us</b></a></li>
                 <li class="nav"><a class="nav_a" href="contactUs.php"><b>Contact</b></a></li>
             </ul>
             <div class="shortcut">
                 <?php
-                session_start();
-
-                // Check if user is logged in
                 if(isset($_SESSION['user_id'])) {
                     // If user is logged in, display logout button
                     echo '<a href="logout.php" class="btn_type1">Logout</a>';
                     // Display profile image
                     echo '<div class="profile-img">
-                            <a href="profile.php"><img src="images/refund/profile.png" width="30px" height="30px"></a>
+                            <a href="profile.php"><img src="images/user/profile.png" width="30px" height="30px"></a>
                           </div>';
                 } else {
                     // If user is not logged in, display login button
