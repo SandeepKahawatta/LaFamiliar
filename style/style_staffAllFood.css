@@ -1,6 +1,43 @@
+/* style.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa; /* Light gray background */
+}
+
+.container {
+    width: 80%;
+    margin: 20px auto; /* Center the container */
+    background-color: #fff; /* White background */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.img-container img {
+    width: 100%;
+    height: auto;
+}
+
+.description {
+    padding: 20px;
+}
+
+.description h2 {
+    color: #333; /* Dark text color */
+    margin-bottom: 10px;
+}
+
+.description p {
+    color: #666; /* Medium dark text color */
+    margin-bottom: 20px;
+}
+
 .buttons {
     display: flex;
-    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .edit-button,
@@ -13,23 +50,42 @@
 }
 
 .edit-button {
-    background-color: #4CAF50; /* Green */
+    background-color: #28a745; /* Green color */
     color: white;
 }
 
 .delete-button {
-    background-color: #f44336; /* Red */
+    background-color: #dc3545; /* Red color */
     color: white;
 }
 
 .edit-button:hover,
 .delete-button:hover {
-    background-color: #45a049; /* Darker green */
+    filter: brightness(85%); /* Darken the button on hover */
 }
 
-.search-container{
-    display: flex;
-    justify-content: center;
-    margin-top: 50px;
-    margin: 50px, auto;
+.search-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center; /* Center align the search container */
 }
+
+.search-container input[type="text"] {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.search-container button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: #007bff; /* Blue color */
+    color: white;
+    cursor: pointer;
+}
+
+.search-container button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+

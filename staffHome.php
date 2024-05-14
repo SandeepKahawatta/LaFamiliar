@@ -22,7 +22,7 @@
     <div class="Home_top">
         <div class="image-content">
             <h1>La<span>Familiar</span></h1>
-            <a href="aboutUs.html">Welcome</a>
+            <a >Welcome</a>
         </div>
     </div>
     <br>

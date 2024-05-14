@@ -21,7 +21,6 @@
                 if(isset($_SESSION['user_id'])) {
                     // If user is logged in, display "Cart" link
                     echo '<li class="nav"><a class="nav_a" href="cart.php"><b>Cart</b></a></li>';
-                    echo '<li class="nav"><a class="nav_a" href="myOrders.php"><b>My Orders</b></a></li>';
                 }
                 ?>
             </ul>
