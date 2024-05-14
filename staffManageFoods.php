@@ -38,8 +38,8 @@
 
     <!-- Side Navigation Bar -->
     <div class="sidenav">
-        <a href="staffAddFood.php">Add Foods</a>
-        <a href="editFood.php">All Foods</a>
+        <a href="staffAddFood.php">Add Food</a>
+        <a href="staffAllFood.php">All Food</a>
     </div>
 
  
