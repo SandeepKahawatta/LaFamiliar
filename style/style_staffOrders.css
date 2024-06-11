@@ -1,0 +1,26 @@
+.order {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.order h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.order p {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.order .total-amount {
+    font-weight: bold;
+    color: #ff5722; /* Or any other color you prefer */
+}
